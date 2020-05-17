@@ -67,7 +67,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ${{ github.workspace }}/periodpicker.exe
+          asset_path: ${{ github.workspace }}/dist/periodpicker.exe
           asset_name: periodpicker.exe
           asset_content_type: application/vnd.microsoft.portable-executable
     
