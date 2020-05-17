@@ -32,9 +32,18 @@ jobs:
         flake8 . --count --select=E9,F63,F7,F82 --show-source --statistics
         # exit-zero treats all errors as warnings. The GitHub editor is 127 chars wide
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
-    - name: Test with pytest
+    - name: Compile with Pyinstaller
       run: |
         pyinstaller periodpicker.py --onefile --windowed
+    - name: List all Files
+      run: |
+        ls -al
+    - name: List all files in github workspace
+      run: |
+        ls -al ${{ github.workspace }}
+    - name: List all files in home
+      run: |
+        ls -al ${{ home}}
         
     - name: Create Release
       id: create_release
@@ -58,7 +67,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       with:
           upload_url: ${{ steps.create_release.outputs.upload_url }}
-          asset_path: ./periodpicker.exe
+          asset_path: ${{ github.workspace }}/periodpicker.exe
           asset_name: periodpicker.exe
           asset_content_type: application/vnd.microsoft.portable-executable
     
