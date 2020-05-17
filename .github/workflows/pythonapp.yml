@@ -43,7 +43,7 @@ jobs:
         ls -al ${{ github.workspace }}
     - name: List all files in home
       run: |
-        ls -al ${{ home}}
+        ls -al $home
         
     - name: Create Release
       id: create_release
