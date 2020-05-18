@@ -214,7 +214,7 @@ if __name__ == "__main__":
     buttontablewidth = 10
     for i, period in enumerate(data.keys()):
         
-        button = tk.Button(buttonFrame, text=period, font=bigFont)
+        button = tk.Button(buttonFrame, text=period, font=smallFont)
         button.grid(column = i % buttontablewidth, row = i // buttontablewidth + 1)
         f = insertInYearentry(period)
         button.bind("<Button-1>", f)
