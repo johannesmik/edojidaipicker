@@ -5,45 +5,51 @@ from collections import OrderedDict
 import tkinter as tk
 import tkinter.font as tkfont
 
-data = {'文禄' : (1592, 4, 'Bunroku'), # 桃山時代
-'慶長' : (1596, 19, 'Keichō'), # 桃山時代
-'元和' : (1615, 9, 'Genna'), # 江戸時代
-'寛永' : (1624, 20, 'Kan\'ei'),
-'正保' : (1644, 4, 'Shōhō'),
-'慶安' : (1648, 4, 'Keian'),
-'承応' : (1652, 3, 'Jōō'),
-'明暦' : (1655, 3, 'Meireki'),
-'万治' : (1658, 3, 'Manji'),
-'寛文' : (1661, 12, 'Kanbun'),
-'延宝' : (1673, 8, 'Enpō'),
-'天和' : (1681, 3, 'Tenna'),
-'貞享' : (1684, 4, 'Jōkyō'),
-'元禄' : (1688, 16, 'Genroku'),
-'宝永' : (1704, 7, 'Hōei'),
-'正徳' : (1711, 5, 'Shōtoku'),
-'享保' : (1716, 20, 'Kyōhō'),
-'元文' : (1736, 5, 'Genbun'),
-'寛保' : (1741, 3, 'Kanpō'),
-'延享' : (1744, 4, 'Enkyō'),
-'寛延' : (1748, 3, 'Kan\'en'),
-'宝歴' : (1751, 13, 'Hōreki'),
-'明和' : (1764, 8, 'Meiwa'),
-'安永' : (1772, 9, 'An\'ei'),
-'天明' : (1781, 8, 'Tenmei'),
-'寛政' : (1789, 12, 'Kansei'),
-'享和' : (1801, 3, 'Kyōwa'),
-'文化' : (1804, 14, 'Bunka'),
-'文政' : (1818, 12, 'Bunsei'),
-'天保' : (1830, 14, 'Tenpō'),
-'弘化' : (1844, 4, 'Kōka'),
-'嘉永' : (1848, 6, 'Ka\'ei'),
-'安政' : (1854, 6, 'Ansei'),
-'万延' : (1860, 1, 'Man\'en'),
-'文久' : (1861, 3, 'Bunkyū'),
-'元治' : (1864, 1, 'Genji'),
-'慶応' : (1865, 3, 'Keiō'),
-'明治' : (1868, 33, 'Meiji') } # Meiji
-data = OrderedDict(sorted(data.items(), key= lambda x: x[1][0]))
+c_lightshade = '#EEF1EE'
+c_lightaccent = '#979B7E'
+c_brand = '#A3B1A7'
+c_darkaccent = '#767682'
+c_darkshade = '#374251'
+
+data = {'文禄' : {'start': 1592, 'length': 4, 'hepburn': 'Bunroku'}, # 桃山時代
+'慶長' : {'start': 1596, 'length': 19, 'hepburn': 'Keichō'}, # 桃山時代
+'元和' : {'start': 1615, 'length': 9, 'hepburn': 'Genna'}, # 江戸時代
+'寛永' : {'start': 1624, 'length': 20, 'hepburn': 'Kan\'ei'},
+'正保' : {'start': 1644, 'length': 4, 'hepburn': 'Shōhō'},
+'慶安' : {'start': 1648, 'length': 4, 'hepburn': 'Keian'},
+'承応' : {'start': 1652, 'length': 3, 'hepburn': 'Jōō'},
+'明暦' : {'start': 1655, 'length': 3, 'hepburn': 'Meireki'},
+'万治' : {'start': 1658, 'length': 3, 'hepburn': 'Manji'},
+'寛文' : {'start': 1661, 'length': 12, 'hepburn': 'Kanbun'},
+'延宝' : {'start': 1673, 'length': 8, 'hepburn': 'Enpō'},
+'天和' : {'start': 1681, 'length': 3, 'hepburn': 'Tenna'},
+'貞享' : {'start': 1684, 'length': 4, 'hepburn': 'Jōkyō'},
+'元禄' : {'start': 1688, 'length': 16, 'hepburn': 'Genroku'},
+'宝永' : {'start': 1704, 'length': 7, 'hepburn': 'Hōei'},
+'正徳' : {'start': 1711, 'length': 5, 'hepburn': 'Shōtoku'},
+'享保' : {'start': 1716, 'length': 20, 'hepburn': 'Kyōhō'},
+'元文' : {'start': 1736, 'length': 5, 'hepburn': 'Genbun'},
+'寛保' : {'start': 1741, 'length': 3, 'hepburn': 'Kanpō'},
+'延享' : {'start': 1744, 'length': 4, 'hepburn': 'Enkyō'},
+'寛延' : {'start': 1748, 'length': 3, 'hepburn': 'Kan\'en'},
+'宝歴' : {'start': 1751, 'length': 13, 'hepburn': 'Hōreki'},
+'明和' : {'start': 1764, 'length': 8, 'hepburn': 'Meiwa'},
+'安永' : {'start': 1772, 'length': 9, 'hepburn': 'An\'ei'},
+'天明' : {'start': 1781, 'length': 8, 'hepburn': 'Tenmei'},
+'寛政' : {'start': 1789, 'length': 12, 'hepburn': 'Kansei'},
+'享和' : {'start': 1801, 'length': 3, 'hepburn': 'Kyōwa'},
+'文化' : {'start': 1804, 'length': 14, 'hepburn': 'Bunka'},
+'文政' : {'start': 1818, 'length': 12, 'hepburn': 'Bunsei'},
+'天保' : {'start': 1830, 'length': 14, 'hepburn': 'Tenpō'},
+'弘化' : {'start': 1844, 'length': 4, 'hepburn': 'Kōka'},
+'嘉永' : {'start': 1848, 'length': 6, 'hepburn': 'Ka\'ei'},
+'安政' : {'start': 1854, 'length': 6, 'hepburn': 'Ansei'},
+'万延' : {'start': 1860, 'length': 1, 'hepburn': 'Man\'en'},
+'文久' : {'start': 1861, 'length': 3, 'hepburn': 'Bunkyū'},
+'元治' : {'start': 1864, 'length': 1, 'hepburn': 'Genji'},
+'慶応' : {'start': 1865, 'length': 3, 'hepburn': 'Keiō'},
+'明治' : {'start': 1868, 'length': 33, 'hepburn': 'Meiji'} } # Meiji
+data = OrderedDict(sorted(data.items(), key= lambda x: x[1]['start']))
 
 def normalizeEdoperiodname(text):
     """
@@ -67,8 +73,9 @@ def edoFromWestern(year):
     ("天保", 3)
     """
     for period in data:
-        startyear, span, _ = data[period]
-        if startyear <= year and year <= startyear + span - 1:
+        startyear = data[period]['start']
+        length = data[period]['length']
+        if startyear <= year and year <= startyear + length - 1:
             return (period, year - startyear + 1)
 
     return ("Not found", 1)
@@ -82,14 +89,15 @@ def westernFromEdo(edoyear):
     year = int(edoyear[2:])
 
     if period in data:
-        startyear, span = data[period]
+        startyear = period['start']
+        length = period['length']
 
-        if 1 <= year and year <= span:
+        if 1 <= year and year <= length:
             return startyear + year - 1
         else:
-            raise ValueError("Year %2d is not within periods span %2d" %(year, span))
+            raise ValueError("Year %2d is not within periods span %2d" %(year, length))
     else:
-        raise ValueError("Don't know period %s" % period)
+        raise ValueError("Didn't find period %s" % period)
 
 def checkEntry(*event):
     entry = yearentry.get()
@@ -99,7 +107,7 @@ def checkEntry(*event):
         period, year = edoFromWestern(westernyear)
         showPeriod(period, year)
     else:
-        period, year = "", ""
+        period, year = "", "0"
         for c in entry:
             if c in "0123456789０１２３４５６７８９":
                 year += str(unicodedata.digit(c))
@@ -108,44 +116,60 @@ def checkEntry(*event):
         
         showPeriod(period, int(year))
 
+def highlightButton(periodname):
+    for period, perioddata in data.items():
+        b = perioddata['button']
+        if period == periodname:
+            b.configure(background=c_darkaccent, activebackground=c_darkaccent, foreground=c_lightshade, activeforeground=c_lightshade)
+        else:
+            b.configure(background=c_lightshade, activebackground=c_lightshade, foreground=c_darkshade, activeforeground=c_darkshade)
+            b.underline = -1
+
 def showPeriod(period: str, year: int):
     if period in data:
-        startyear, span, transcription = data[period]
-        endyear = startyear + span - 1
-    # Search in translation
-    elif normalizeEdoperiodname(period) in [normalizeEdoperiodname(d[2]) for d in data.values()]:
+        startyear = data[period]['start']
+        length = data[period]['length']
+        transcription = data[period]['hepburn']
+        endyear = startyear + length - 1
+        highlightButton(period)
+    # Search in hepburn transcription
+    elif normalizeEdoperiodname(period) in [normalizeEdoperiodname(d['hepburn']) for d in data.values()]:
         for key, value in data.items():
-            if normalizeEdoperiodname(period) == normalizeEdoperiodname(value[2]):
+            if normalizeEdoperiodname(period) == normalizeEdoperiodname(value['hepburn']):
                 period = key
-                startyear, span, transcription = data[period]
-                endyear = startyear + span - 1
+                startyear = value['start']
+                length = value['length']
+                transcription = value['hepburn']
+                endyear = startyear + length - 1
+                highlightButton(period)
     else:
         period = "not found"
-        startyear, span, transcription = 0, 0, ""
+        startyear, length, transcription = 0, 0, ""
         endyear = 0
-        pass
 
     for widget in resultFrame.winfo_children():
         widget.destroy()
 
-    labelPeriod = tk.Label(resultFrame, text=period, font=bigFont)
+    labelPeriod = tk.Label(resultFrame, text=period, font=bigFont, bg=c_lightshade)
     labelPeriod.pack()
-    labelPeriodTranslation = tk.Label(resultFrame, text=transcription, font=normalFont)
+    labelPeriodTranslation = tk.Label(resultFrame, text=transcription, font=smallFont, bg=c_lightshade)
     labelPeriodTranslation.pack()
-    labelSpan = tk.Label(resultFrame, text="%s - %s" % (startyear, endyear), font=smallFont)
-    labelSpan.pack()
+    labelSpan = tk.Label(resultFrame, text="%s - %s" % (startyear, endyear), font=smallFont, bg=c_lightshade)
+    labelSpan.pack(pady=(5, 20))
 
-    tableFrame = tk.Frame(resultFrame)
+    tableFrame = tk.Frame(resultFrame, bg=c_lightshade)
     tableFrame.pack()
-    for i in range(span):
+    for i in range(length):
+        col_edoyear = tk.Label(tableFrame, text=period + str(i+1), bg=c_lightshade)
+        col_year = tk.Label(tableFrame, text=str(startyear + i), bg=c_lightshade)
         if i + 1 == year:
-            font = bigFont
+            col_edoyear.configure(font=normalFont, fg=c_lightaccent)
+            col_year.configure(font=normalFont, fg=c_lightaccent)
         else:
-            font = smallFont
-        col_edoyear = tk.Label(tableFrame, text=period + str(i+1), font=font)
-        col_edoyear.grid(column=0, row=i)
-        col_year = tk.Label(tableFrame, text=str(startyear + i), font=font)
-        col_year.grid(column=1, row=i)
+            col_edoyear.configure(font=smallFont)
+            col_year.configure(font=smallFont)
+        col_edoyear.grid(column=0, row=i, padx=(10, 10))
+        col_year.grid(column=1, row=i, padx=(10, 10))
 
 def getFunction_InsertEdoperiodInEntry(edoperiod):
     def f(event):
@@ -158,20 +182,21 @@ def getFunction_InsertEdoperiodInEntry(edoperiod):
 if __name__ == "__main__":
     window = tk.Tk()
     window.title("江戸時代 → 西年")
+    window.configure(bg=c_lightshade)
     smallFont = tkfont.Font(family="Lucida Grande", size=12)
     normalFont = tkfont.Font(family="Lucida Grande", size=16)
     bigFont = tkfont.Font(family="Lucida Grande", size=20)
-    window.geometry("800x400")
-    inputFrame = tk.Frame()
-    inputFrame.pack()
-    buttonFrame = tk.Frame()
-    buttonFrame.pack()
-    resultFrame = tk.Frame()
-    resultFrame.pack()
+    window.geometry("700x800")
+    inputFrame = tk.Frame(bg=c_lightshade)
+    inputFrame.pack(pady=(10, 10))
+    buttonFrame = tk.Frame(bg=c_lightshade)
+    buttonFrame.pack(pady=(10, 10))
+    resultFrame = tk.Frame(bg=c_lightshade)
+    resultFrame.pack(pady=(10, 10))
 
-    yearentryLabel = tk.Label(inputFrame, text="年", font=normalFont)
-    yearentryLabel.grid(column=0, row=0)
-    yearentry = tk.Entry(inputFrame, width=10, font=bigFont)
+    yearentryLabel = tk.Label(inputFrame, text="年", font=normalFont, bg=c_lightshade)
+    yearentryLabel.grid(column=0, row=0, padx=(0, 10))
+    yearentry = tk.Entry(inputFrame, width=10, font=normalFont)
     yearentry.grid(column=1, row=0)
     yearentry.bind("<Return>", checkEntry)
 
@@ -182,5 +207,7 @@ if __name__ == "__main__":
         button.grid(column = i % buttontablewidth, row = i // buttontablewidth + 1)
         f = getFunction_InsertEdoperiodInEntry(period)
         button.bind("<Button-1>", f)
+        data[period]['button'] = button
+    highlightButton("")
 
     window.mainloop()
